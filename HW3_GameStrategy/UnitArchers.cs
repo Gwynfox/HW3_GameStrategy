@@ -7,23 +7,13 @@ using System.Threading.Tasks;
 
 namespace HW3_GameStrategy
 {
-    public class UnitArcher : Unit
+    public class UnitArcher : Unit, IComparable<Unit>
     {
-        public string unitClass = "Archer";
+        //public string unitClass = "Archer";
         public string weapon = "Bow";
-        public void Print()
+        public override void Print()
         {
             Console.WriteLine($"Class: {unitClass} | Use: {weapon} | Health: {healthPoint} | Defence: {defense} | Attack: {attack} | Cost: {cost}");         
         }        
-    }
-    public class EliteUnitArcher : UnitArcher
-    {
-        public string unitClass = "Elite Archer";
-        public string weapon = "Fire Bow";
-        public int fireAttack;
-        public void Print()
-        {
-            Console.WriteLine($"Class: {unitClass} | Use: {weapon} | Health: {healthPoint} | Defence: {defense} | Attack: {attack} | Fire Attac: {fireAttack} | Cost: {cost}");
-        }
-    }
+    }    
 }

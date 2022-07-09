@@ -6,11 +6,14 @@
         {
             //GoToUnitSeller(); // - dont work
             CheckArmy();
+            //SortToCost();
+            SortToCost();            
         }
         public static UnitArcher СreateArcher()
         {
             var archer = new UnitArcher();
-                        
+
+            archer.unitClass = "Archer";            
             archer.healthPoint = 4;
             archer.defense = 2;
             archer.attack = 5;
@@ -22,6 +25,7 @@
         {
             var eliteArcher = new EliteUnitArcher();
 
+            eliteArcher.unitClass = "Elite Arcger";
             eliteArcher.healthPoint = 5;
             eliteArcher.defense = 4;
             eliteArcher.attack = 5;
@@ -34,6 +38,7 @@
         {
             var swordsman = new Swordsman();
 
+            swordsman.unitClass = "Swordsman";
             swordsman.healthPoint = 6;
             swordsman.defense = 3;
             swordsman.attack = 6;
@@ -46,6 +51,7 @@
         {
             var protector = new Protector();
 
+            protector.unitClass = "Protector";
             protector.healthPoint = 9;
             protector.defense = 6;
             protector.attack = 4;
@@ -150,6 +156,7 @@
             Console.WriteLine($"Cost of your army: {archer.cost * nomberOfArchers + eliteArcher.cost * nomberOfEliteArcher + swordsman.cost * nomberOfSwordsman + protector.cost * nomberOfProtector}");
 
             Console.ReadLine();
+            
             //int[] costArmy = {archer.cost, eliteArcher.cost, swordsman.cost, protector.cost};
             //
             //Array.Sort(costArmy);
@@ -157,6 +164,38 @@
             //Console.WriteLine($"{archer.cost}");
             //
             //Console.WriteLine (costArmy);
+        }
+          //static void SortToCost()
+        //{ 
+          //  var archer = СreateArcher();
+          //  var eliteArcher = СreateEliteArcher();
+          //  var swordsman = СreateSwordsman();
+          //  var protector = СreateProtector();
+          //  Console.WriteLine();
+          //  //List<Unit> yourArmy = new List<Unit>
+          //  //{
+          //  //    new UnitArcher (),
+          //  //    new EliteUnitArcher (),
+          //  //    new Swordsman (),
+          //  //    new Protector (),
+          //  //};
+          //  //yourArmy.Sort();
+          //  int[] nombers = new int[] {archer.cost, eliteArcher.cost, swordsman.cost, protector.cost };
+          //  Array.Sort(nombers);
+          //  foreach(int n in nombers) Console.WriteLine(n);
+          //  Console.Read();
+        //}
+        static void SortToCost()
+        {
+            Console.WriteLine("Sort by price:");
+            var archer = СreateArcher();
+            var eliteArcher = СreateEliteArcher();
+            var swordsman = СreateSwordsman();
+            var protector = СreateProtector();
+            Unit[] army = new Unit[] {archer, eliteArcher, swordsman, protector};
+            Array.Sort(army);
+            foreach(Unit u in army) Console.WriteLine($"{u.unitClass} - {u.cost} gold ");
+            Console.ReadLine();
         }
     }
 }
